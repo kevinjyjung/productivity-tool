@@ -1,23 +1,19 @@
+const ENDPOINT = "http://localhost:3001/tasks";
+
 export async function fetchTasks() {
-    return [
-        {
-            id: 1,
-            number: 1,
-            unit: "reps",
-            name: "push-ups",
-        },
-        {
-            id: 2,
-            number: 5,
-            unit: "minutes",
-            name: "mixing",
-        },
-        {
-            id: 3,
-            number: 1,
-            unit: "lines",
-            name: "code",
-        }
-    ];
+    console.log("fetching..");
+    try {
+        let response = await fetch(ENDPOINT, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+            },
+        });
+        let data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
