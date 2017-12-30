@@ -41,7 +41,7 @@ li {
 
 .task-button:hover {
     background-color: white;
-    color: #ffb31a;
+    color: #4CAF50;
 }
 
 .task-button:disabled {

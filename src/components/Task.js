@@ -10,13 +10,8 @@ function checkToday(timestamp) {
 
 export default function Task({ task, onComplete }) {
     return (
-        (checkToday(task.timestamp)) ?
-        <button className="task-button" disabled={true} >
+        <button className="task-button" disabled={checkToday(task.timestamp)} >
             {task.number} {task.unit} of {task.name} DONE!
-        </button>
-        :
-        <button className="task-button">
-            {task.number} {task.unit} of {task.name}
         </button>
     );
 }
