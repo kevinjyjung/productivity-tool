@@ -4,7 +4,7 @@ import {
     doDummyAction,
 } from '../actions';
 import Task from './Task';
-import { fetchTasks } from '../utils/api';
+import { fetchTasks, completeTask } from '../utils/api';
 
 class Main extends Component {
     state = {
@@ -25,6 +25,13 @@ class Main extends Component {
         }
     }
 
+    onCompleteTask(id) {
+        return async () => {
+            console.log("completing task " + id);
+            await completeTask(id);
+        }
+    }
+
     render() {
         return (
             <div>
@@ -35,7 +42,7 @@ class Main extends Component {
                     {this.state.tasks && this.state.tasks.map(
                         (task) => (
                             <li className='task' key={task.id}>
-                                <Task task={task} onComplete={1}/>
+                                <Task task={task} onComplete={this.onCompleteTask(task.id)}/>
                             </li>
                         )
                     )}
