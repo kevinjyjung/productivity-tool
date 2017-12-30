@@ -26,7 +26,7 @@ li {
 }
 
 .task-button {
-    background-color: #4CAF50;
+    background-color: #ffb31a;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -41,7 +41,11 @@ li {
 
 .task-button:hover {
     background-color: white;
-    color: #4CAF50;
+    color: #ffb31a;
+}
+
+.task-button:disabled {
+    background-color: #4CAF50;
 }
 
 .task-list {

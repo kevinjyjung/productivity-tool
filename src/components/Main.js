@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { 
     doDummyAction,
 } from '../actions';
+import Task from './Task';
 import { fetchTasks } from '../utils/api';
 
 class Main extends Component {
@@ -34,9 +35,7 @@ class Main extends Component {
                     {this.state.tasks && this.state.tasks.map(
                         (task) => (
                             <li className='task' key={task.id}>
-                                <button className='task-button'>
-                                    {task.number} {task.unit} of {task.name}
-                                </button>
+                                <Task task={task} onComplete={1}/>
                             </li>
                         )
                     )}
